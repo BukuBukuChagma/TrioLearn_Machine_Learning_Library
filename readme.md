@@ -33,7 +33,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 
 from triolearn.data_preprocessing import DataPrepocessing
-from triolearn.machine_learning.MLP_2 import NeuralNetwork
+from triolearn.machine_learning.MLP import NeuralNetwork
 from triolearn.machine_learning.Probabillistic import NaiveBayes
 from triolearn.machine_learning.Regression import Binary_Logistic_Regressor
 from triolearn.machine_learning.NearestNeighbor import KNN

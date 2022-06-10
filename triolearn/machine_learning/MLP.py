@@ -5,6 +5,15 @@ from .Model import Model
 def threshold(X):
     return np.where(np.array(X) > 0.5, 1.0, 0.0)
 
+class Sigmoid():
+    def forward(self, input_data):
+        self.input = input_data
+        self.output = 1 / (1 + np.exp(-input_data))
+        return self.output
+    def backward(self, output_error, learning_rate):
+        return output_error*(self.output * (1.0 - self.output))
+
+
 class ReLU():
     def __init__(self):
         pass
@@ -58,10 +67,13 @@ class NeuralNetwork(Model):
 
         self.n_dims.insert(0, X_train.shape[1])
         self.n_dims.append(1)
-        
+        [32, 164, 32, 32, 8, 1]
         for idx, elem in enumerate(self.n_dims[:-1]):
             self.layers.append(Layer(self.n_dims[idx], self.n_dims[idx+1]))
-            self.layers.append(ReLU())
+            if elem != self.n_dims[-2]:
+                self.layers.append(ReLU())
+            else:
+                self.layers.append(Sigmoid())
 
     # sample dimension first
         samples = len(X_train)
@@ -76,6 +88,7 @@ class NeuralNetwork(Model):
                     output = layer.forward(output)
 
                 # compute loss (for display purpose only)
+                output = np.squeeze(output)
                 err += self.mse(y_train[j], output)
 
                 # backward propagation
@@ -86,6 +99,7 @@ class NeuralNetwork(Model):
             # calculate average error on all samples
             err /= samples
             print('epoch %d/%d   error=%f' % (i+1, self.epochs, err))
+
 
     def predict(self, X_test):
         # sample dimension first
