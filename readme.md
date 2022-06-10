@@ -4,29 +4,29 @@ Note: This is a side project and is not complete, It is still under work. I do a
 <br>
 Constraints:<br>
 For working with any of the machine learning algorithm inside the library, there are certain constraints for now, which are as follow:<br>
-==> The Dataset being used must have output column at end
-==> Categorical Columns must not have been encoded to numerical
+==> The Dataset being used must have output column at end<br>
+==> Categorical Columns must not have been encoded to numerical<br><br>
 
-Stuff Inside The Library:
-==> DataPreprocessing
-    Data Preprocessing will accept raw dataset and preform the following things:
-	i) Normalize Numerical Columns if the differnce between max and min value in that column is greater then 50.
-	ii) Perform One Hot Encoding on categorical columns.
-	iii) Take care of NaN/Missing values by replacing them with either Mean/Mode depending on whether the column is numerical or categorical.
-	iv) At last split dataset into Input(X) and Output(Y) and return them.
-    Note: Data Preprocessing part can be skipped if none of the above techniques needs to be applied on your data. Meaning if you are sure that your data is already in the format it would've been if passed to data preprocessing.
+Stuff Inside The Library:<br>
+==> DataPreprocessing<br>
+    Data Preprocessing will accept raw dataset and preform the following things:<br>
+	i) Normalize Numerical Columns if the differnce between max and min value in that column is greater then 50.<br>
+	ii) Perform One Hot Encoding on categorical columns.<br>
+	iii) Take care of NaN/Missing values by replacing them with either Mean/Mode depending on whether the column is numerical or categorical.<br>
+	iv) At last split dataset into Input(X) and Output(Y) and return them.<br><br>
+    Note: Data Preprocessing part can be skipped if none of the above techniques needs to be applied on your data. Meaning if you are sure that your data is already in the format it would've been if passed to data preprocessing.<br><br>
 
-After using the DataPrepocessing, you will have X(input) and Y(output).
-Now you can start using any of the machine learning algorithm inside the library, which include for now:
-1)==> Binary Logistic Regressor
-2)==> Naive Bayes Classifier(For Mix Data)
-3)==> Classification Tree
-4)==> Artificial Nueral Network(Multilayer Preceptron)
-5)==> K-Nearest Neighbour
+After using the DataPrepocessing, you will have X(input) and Y(output).<br>
+Now you can start using any of the machine learning algorithm inside the library, which include for now:<br>
+1)==> Binary Logistic Regressor<br>
+2)==> Naive Bayes Classifier(For Mix Data)<br>
+3)==> Classification Tree<br>
+4)==> Artificial Nueral Network(Multilayer Preceptron)<br>
+5)==> K-Nearest Neighbour<br><br>
 
-Almost all of these are only for Binary Classification, atleast for now. I'm working on expanding them to include multi-class too.
+Almost all of these are only for Binary Classification, atleast for now. I'm working on expanding them to include multi-class too.<br><br>
 
-Example code of how to Use these is given below:
+Example code of how to Use these is given below:<br><br>
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -39,8 +39,8 @@ from triolearn.machine_learning.Regression import Binary_Logistic_Regressor
 from triolearn.machine_learning.NearestNeighbor import KNN
 
 data = pd.read_csv('dataset.csv')
-train_dataframe =  data.iloc[:int(len(combined_data)*0.8),:]
-test_dataframe =  data.iloc[int(len(combined_data)*0.8):,:]
+train_dataframe =  data.iloc[:int(len(data)*0.8),:]
+test_dataframe =  data.iloc[int(len(data)*0.8):,:]
 
 X, y = DataPrepocessing().dataCleaning(data)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, random_state=41)
@@ -77,7 +77,7 @@ print("KNN: ", KNN_clf.score(X_test, y_test))
 
 
 ```
-
-I know its not the best, but yeah I'm working on making it efficient, optimized and more generic. Please bear with me.
-Also any help on how to improve or if you want to contribute to making it better, do contact me using the contact option on my profile.
+<br>
+I know its not the best, but yeah I'm working on making it efficient, optimized and more generic. Please bear with me.<br>
+Also any help on how to improve or if you want to contribute to making it better, do contact me using the contact option on my profile.<br>
 
