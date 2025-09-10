@@ -126,8 +126,3 @@ Any contributions, suggestions, or bug reports are welcome! Contact me via my pr
 
 TrioLearn is a **from-scratch supervised ML library** aimed at learning and experimentation. It offers **easy-to-use interfaces** for binary classification algorithms and is continuously evolving.
 
----
-
-If you want, I can also draft a **shorter, more eye-catching version** for GitHub that’s optimized for readers scanning quickly.
-
-Do you want me to do that?
